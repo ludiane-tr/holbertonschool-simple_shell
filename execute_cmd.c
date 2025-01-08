@@ -5,7 +5,7 @@
  * @argv: The array of arguments for the command.
  * Return: EXIT_SUCCESS on success, EXIT_FAILURE on failure.
  */
-int exec_cmd(char **argv)
+int execute_cmd(char **argv)
 {
 	pid_t child_pid;
 	int status;
