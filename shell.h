@@ -14,9 +14,10 @@ extern char **environ;
 
 int path_finder(char *cmd, char *work_buffer);
 int file_checker(char *file);
-int exec_cmd(char **argv);
+int exec_cmd(char *argv[]);
 char **tok_args(char *input_buffer);
 void print_env(void);
 int _error(void);
+char *_getenv(const char *name);
 
 #endif
