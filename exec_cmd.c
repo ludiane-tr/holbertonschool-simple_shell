@@ -15,7 +15,8 @@ int exec_cmd(char **argv)
 	if (!work_buffer)
 		return (_error());
 
-	if (!strcpy(work_buffer, cmd) || path_finder(cmd, work_buffer) == EXIT_FAILURE)
+	if (!strcpy(work_buffer, cmd) ||
+			path_finder(cmd, work_buffer) == EXIT_FAILURE)
 	{
 		fprintf(stderr, "./hsh: 1: %s: not found\n", cmd);
 		free(work_buffer);
@@ -29,7 +30,7 @@ int exec_cmd(char **argv)
 		return (_error());
 	}
 
-	if (child_pid == 0) // Child process
+	if (child_pid == 0)
 	{
 		if (execve(work_buffer, argv, environ) == -1)
 		{
@@ -38,8 +39,12 @@ int exec_cmd(char **argv)
 			exit(127);
 		}
 	}
+
 	wait(&status);
 	free(work_buffer);
 
-	return (WIFEXITED(status) ? WEXITSTATUS(status) : EXIT_FAILURE);
+	if (WIFEXITED(status))
+		return (WEXITSTATUS(status));
+
+	return (EXIT_FAILURE);
 }
