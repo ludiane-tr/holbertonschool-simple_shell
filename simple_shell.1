@@ -1,0 +1,53 @@
+.TH SIMPLE_SHELL 1 "Janvier 2025" "Version 1.0" "User Commands"
+
+.SH NAME
+simple_shell \- a lightweight UNIX command interpreter
+
+.SH SYNOPSIS
+.B simple_shell
+.I [options]
+
+.SH DESCRIPTION
+.B simple_shell
+is a basic UNIX command interpreter. It reads user input and executes commands. It demonstrates core shell functionalities and is designed for educational purposes.
+
+.SH COMMANDS
+.B simple_shell
+includes these built-in commands:
+.PP
+.TP
+.B exit
+Close the shell.
+.TP
+.B env
+Display the environment variables.
+.TP
+.B ls
+List files in the current directory.
+
+.PP
+External programs in the system PATH can also be executed.
+
+.SH USAGE
+Run the shell with:
+.PP
+.EX
+$ ./simple_shell
+.EE
+
+Type commands followed by Enter. Example:
+.PP
+.EX
+$ ls -l
+.EE
+
+To exit, type `exit` or press `Ctrl-D`.
+
+.SH EXIT STATUS
+Returns the status of the last executed command or 0 if none.
+
+.SH AUTHOR
+Trouillefou Ludiane
+
+.SH BUGS
+No known issues.
